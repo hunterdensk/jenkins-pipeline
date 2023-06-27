@@ -1,0 +1,35 @@
+pipeline {
+    agent { docker { image 'python:latest' }}
+
+    stages {
+        stage('1-build') {
+            steps {
+                echo 'Start of stage build'
+                echo 'building.......'
+                echo 'End of stage build'
+            }
+        }
+        stage('2-test') {
+            steps {
+                echo 'Start of stage test'
+                echo 'testing.......'
+                sh "ls -la"
+                echo 'End of stage test'
+            }
+        }
+        stage('3-deploy') {
+            steps {
+                echo 'Start of stage deploy'
+                echo 'building.......'
+                sh "python --version"
+                echo 'End of stage build'
+            }
+        }
+        stage('4-congrats') {
+            steps {
+                echo 'congrats!'
+                
+            }
+        }
+    }   
+}
